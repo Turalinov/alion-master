@@ -1,0 +1,124 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  padding-top: 10px;
+  padding-bottom: 7px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  background-color: $main-color;
+  box-shadow: 0 3px 0 #5292d2;
+  cursor: pointer;
+  transition: all 0.3s;
+  appearance: none;
+
+  &:hover {
+    background-color: #64b1ff;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  & span {
+    margin-left: 20%;
+  }
+
+  & span.button__icon {
+    margin-left: 0;
+  }
+
+  &--bord {
+    justify-content: center;
+    padding: 20px;
+    color: $main-color;
+    background-color: transparent;
+    border: 1px solid #49a3fe;
+    box-shadow: none;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #49a3fe;
+    }
+  }
+
+  &--blue {
+    justify-content: center;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #75b4ff;
+    box-shadow: 0 3px 0 #508ad0;
+  }
+
+  &--white {
+    justify-content: center;
+    color: $main-color;
+    background-color: #ffffff;
+    box-shadow: 0 3px 0 #d9d9d9;
+  }
+}
+
+.button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  & svg {
+    width: 15px;
+    height: 15px;
+    fill: #ffffff;
+  }
+}
+
+@media (max-width: 319px) {
+  .button {
+    & span {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .button {
+    padding-top: 11px;
+    padding-bottom: 8px;
+    font-size: 14px;
+
+    & span {
+      margin-left: 23px;
+    }
+
+    &--blue {
+      padding-top: 20px;
+      padding-bottom: 16px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &--white {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  .button__icon {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+
+    & svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.text-block {
+  padding: 100px 20px 90px 20px;
+
+  h2 {
+    margin: 30px 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    /* or 156% */
+
+
+    color: #000000;
+
+    & + p {
+      margin-top: 25px;
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    li {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  a {
+    color: #2e84e8;
+    text-decoration: underline;
+  }
+
+  b {
+    font-weight: 700;
+  }
+}
+
+.text-block__title {
+  margin-bottom: 46px;
+  font-size: 35px;
+}
+
+@media (min-width: 1200px) {
+  .text-block {
+    padding-top: 175px;
+
+    @include page-wrapper;
+  }
+}
