@@ -1,4 +1,6 @@
+//swiper
 import Swiper from 'swiper/bundle';
+//tabs class
 import Tabs from "%modules%/tabs/tabs";
 import WOW from "wow.js/dist/wow.min"
 import IMask from 'imask';
@@ -6,32 +8,53 @@ import {Popup, PopupThanks } from "%modules%/modal/modal";
 import $ from "jquery";
 global.jQuery = $;
 
+const tabArr = document.querySelectorAll(`[data-tabs]`);
+const phones = document.querySelectorAll(`.field__input--phone`);
+const phoneOption = {
+  mask: '+{33} (0) 00-00-00-00'
+}
 const popups = document.querySelectorAll(`.popup`);
 const thx = document.querySelector(`.popup--thx`);
 const toggleNav = document.querySelector(`.header__toggle`);
 const header = document.querySelector(`.header`);
-const tabArr = document.querySelectorAll(`[data-tabs]`);
-const phones = document.querySelectorAll(`.field__input--phone`);
-const maps = document.querySelector(".contact__map");
-const phoneOption = {
-  mask: '+{33} (0) 00-00-00-00'
-}
 
 // Инициализация библиотеки анимации
 new WOW().init();
-
+// Инициализация табов
+tabArr.forEach((item) => new Tabs(item));
+// Инициализация маски для телефона
+phones.forEach((item) => IMask(item, phoneOption));
 // Инициализация попапов
 popups.forEach(function (popup) {
   new Popup(popup);
 });
-
 // Меню
 toggleNav.addEventListener("click",  () => {
   header.classList.toggle(`header--active`)
 });
+const maps = document.querySelector(".contact__map");
 
-// Инициализация табов
-tabArr.forEach((item) => new Tabs(item));
+// Инициализация слайдера
+const swiper = new Swiper('.swiper-container', {
+  effect: 'fade',
+  centeredSlides: true,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<div class="' + className + '"><span class="bullet" ></span><span>' + `${(index < 9) ? '0' : ''}`  + (index + 1) + '</span></div>';
+    },
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
 // Инициализация карты
 function initMap() {
@@ -210,31 +233,6 @@ function initMap() {
 if(maps) {
   initMap();
 }
-
-// Инициализация слайдера
-const swiper = new Swiper('.swiper-container', {
-  effect: 'fade',
-  centeredSlides: true,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<div class="' + className + '"><span class="bullet" ></span><span>' + `${(index < 9) ? '0' : ''}`  + (index + 1) + '</span></div>';
-    },
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
-
-// Инициализация маски для телефона
-phones.forEach((item) => IMask(item, phoneOption));
 
 // Ajax отправка формы
 $(".form").submit(function() { //Change

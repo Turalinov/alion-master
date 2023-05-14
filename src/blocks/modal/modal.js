@@ -1,6 +1,6 @@
 class Popup {
-  constructor(popup) {
 
+  constructor(popup) {
     this.popup = popup
     this.name = this.popup.getAttribute('data-popup');
     this.open_btn = document.querySelectorAll('.get-popup[data-popup="' + this.name + '"]');
@@ -10,8 +10,8 @@ class Popup {
 
     this.events();
   }
-  events() {
 
+  events() {
     this.open_btn.forEach(btn => {
       btn.addEventListener('click', (evt) => {
         evt.preventDefault();
@@ -20,7 +20,6 @@ class Popup {
     });
 
     if (this.closer) {
-
       this.closer.addEventListener('click', () => {
         this.hidePopup();
       });
@@ -61,7 +60,6 @@ class Popup {
 class PopupThanks extends Popup {
   constructor(popup) {
     super(popup);
-
     this.isOpened = false;
     this.closer = this.popup.querySelector('.popup__close');
   }

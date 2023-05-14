@@ -1,12 +1,9 @@
 class Tabs {
-
   constructor(target, options = {}) {
     this._target = target;
     this.setOptions(options);
-
     this.init();
   }
-
 
   init() {
     this.getTabs().forEach((item) => {
@@ -34,7 +31,6 @@ class Tabs {
     const content = this._target.querySelector(`[${this.DEFAULT_OPTION.DATA_CONTENT}="${id}"]`);
     const activeTab = this._target.querySelector(`.${this.DEFAULT_OPTION.TAB_ACTIVE_CLASS}[${this.DEFAULT_OPTION.DATA_TAB}]`);
     const activeContent = this._target.querySelector(`.${this.DEFAULT_OPTION.CONTENT_ACTIVE_CLASS}[${this.DEFAULT_OPTION.DATA_CONTENT}]`);
-
     this.toggleClass(activeTab, item, this.DEFAULT_OPTION.TAB_ACTIVE_CLASS);
     this.toggleClass(activeContent, content, this.DEFAULT_OPTION.CONTENT_ACTIVE_CLASS);
   }
@@ -46,5 +42,3 @@ class Tabs {
 }
 
 export default Tabs;
-
-

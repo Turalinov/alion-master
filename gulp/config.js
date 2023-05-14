@@ -1,5 +1,4 @@
 // Пути для тасков
-
 module.exports = {
   clean: {
     src: "./dist/*"
